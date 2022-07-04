@@ -17,6 +17,11 @@
         function inserir(){
 
         }
+
+        function excluir($id){
+          $this->model->excluir($id);  
+          header('Location: ?c=categoria');
+        }
     }
 
     //$controller = new Categoria();
