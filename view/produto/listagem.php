@@ -22,7 +22,7 @@
                 <td> <?= $produto['foto'] ?></td>
                 <td> 
                     <a href="<?= base_url() ?>?c=produto&m=excluir&id=<?= $produto['idproduto'] ?>" class="btn btn-danger" title="excluir"> <i class="fa-solid fa-trash-can"></i> </a>
-                    <a href="<?= base_url() ?>?c=produtoa&m=editar&id=<?= $produto['idproduto'] ?>" class="btn btn-primary" title="editar"> <i class="fa-solid fa-pencil"></i> </a>    
+                    <a href="<?= base_url() ?>?c=produto&m=editar&id=<?= $produto['idproduto'] ?>" class="btn btn-primary" title="editar"> <i class="fa-solid fa-pencil"></i> </a>    
                 </td>
             </tr>
             <?php endforeach;?>
