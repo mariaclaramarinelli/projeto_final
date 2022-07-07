@@ -21,11 +21,11 @@
         }
 
         function ver($id){
-            echo $id;
             $categorias = $this->categoria->buscarTodos();
+            $produtos = $this->produto->buscarPorId($id);
             include 'view/templete/cabecalho.php';
             include 'view/templete/menu_home.php';
-            include 'view/home/listagem.php';
+            //include 'view/home/listagem.php';
             include 'view/templete/rodape.php';
         }
     }
