@@ -1,22 +1,26 @@
     <!-- Conteúdo da Página -->
-    <div class="container">
+    <hr>
+    <div class="container mt-2">
         <div class="row">
             <div class="col-6">
-                <img src="<?= $produto['foto']?>">
+                <img src="<?= $produto['foto']?>" class="img-fluid">
             </div>
 
             <div class="col-6">
-                <h5> <?= $produto['nome']?> </h5>
+                <h4> <?= $produto['nome']?> </h4>
                 <p>Marca: <?= $produto['nome']?> </p>
-                <strong>R$ <?= $produto['preco']?> </strong>
+                <h5>R$ <?= $produto['preco']?> </h5>
             </div>
 
         </div>
 
         <div>
-            <h6>Detalhes</h6>
+            <h4 class="mt-4">Detalhes</h4>
+            <hr>
             <?= $produto['descricao']?>
         </div>
+
+        <hr>
         
     </div>
 

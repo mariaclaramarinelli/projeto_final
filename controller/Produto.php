@@ -7,6 +7,10 @@ require 'controller/Controller.php';
 class Produto extends Controller{
 
     function __construct(){
+        session_start();
+        if(!isset($_SESSION['usuario'])){
+            header('Location: ?c=restrito&m=login');
+        }
         $this->model = new ProdutoModel();
         $this->categoria_model = new CategoriaModel();
     }

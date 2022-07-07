@@ -24,7 +24,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="<?= base_url() . "?c=usuario&m=logout"?>">Sair</a>
+          <a class="nav-link" href="<?= base_url() . "?c=restrito&m=logout"?>">Sair</a>
         </li>
       </ul>
 
