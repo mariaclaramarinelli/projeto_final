@@ -31,6 +31,7 @@ class Produto extends Controller{
 
     function editar($id){
         $produto = $this->model->buscarPorId($id);
+        $categorias = $this->categoria_model->buscarTodos();
         include 'view/templete/cabecalho.php';
         include 'view/templete/menu.php';
         include 'view/produto/form.php';
@@ -43,15 +44,29 @@ class Produto extends Controller{
       header('Location: ?c=produto');
     }
 
+    function salvar_foto(){
+        if(isset($_FILES['foto']) && !$_FILES['foto']['error']){
+
+            $nome_imagem = time() . $_FILES['foto']['name'];
+            $origem = $_FILES['foto']['tmp_name'];
+            $destino = "fotos/$nome_imagem";
+            if(move_uploaded_file($origem, $destino)){
+                return $destino;
+            }
+        }
+        return false;
+    }
+
     function salvar(){
         if(isset($_POST['nome']) && !empty($_POST['nome'])){
+            $nome_foto = $this->salvar_foto() ?? "fotos/semfoto.jpg";
             if(empty($_POST['idproduto'])){
                 $this->model->inserir(
                     $_POST['nome'],
                     $_POST['descricao'],
                     $_POST['preco'],
                     $_POST['marca'], 
-                    "ffgfddgdf.png",
+                    $nome_foto,
                     $_POST['categoria']);
             }else{
                 $this->model->atualizar( 
@@ -60,7 +75,7 @@ class Produto extends Controller{
                     $_POST['descricao'],
                     $_POST['preco'],
                     $_POST['marca'], 
-                    "ffgfddgdf.png",
+                    $nome_foto,
                     $_POST['categoria']
                 );
             }
